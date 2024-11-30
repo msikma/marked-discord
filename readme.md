@@ -16,9 +16,9 @@ To parse Markdown content, pass it as string:
 import {MarkedDiscord} from '@dada78641/marked-discord'
 
 const markdownContent = `Here's a Discord emoji: <:zergling:901461081384452187>`
-const lexer = new MarkedDiscord()
-const tokens = lexer.getMarkdownTokens(textContent)
-console.log(tokens)
+const parser = new MarkedDiscord()
+const res = parser.getMarkdownTokens(markdownContent)
+console.log(res)
 ```
 
 This will log the following data:
@@ -42,12 +42,17 @@ This will log the following data:
           raw: '<:zergling:901461081384452187>',
           emojiName: 'zergling',
           emojiId: '901461081384452187',
-          tokens: []
         }
       ]
     }
   ],
-  entities: { Emoji: [ '901461081384452187' ] }
+  entities: {
+    '901461081384452187': {
+      type: 'Emoji',
+      id: '901461081384452187',
+      name: 'zergling'
+    }
+  }
 }
 ```
 
