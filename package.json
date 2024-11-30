@@ -1,0 +1,35 @@
+{
+  "name": "@dada78641/marked-discord",
+  "description": "Markdown parser for Discord content",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup --watch src",
+    "test": "TZ=CET vitest run",
+    "lint": "eslint ."
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": "https://github.com/msikma/marked-discord",
+  "license": "MIT",
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@types/lodash.keyby": "^4.6.9",
+    "eslint": "^9.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^2.1.3"
+  },
+  "dependencies": {
+    "lodash.keyby": "^4.6.0",
+    "marked": "^15.0.2"
+  }
+}
