@@ -56,25 +56,6 @@ This will log the following data:
 }
 ```
 
-## Description
-
-Discord flavored Markdown has the special feature of allowing you to refer to a number of entity types that exist on the server:
-
-* Users
-* Roles
-* Channels
-* Emoji
-
-When you make such a reference, the Markdown content will include the entity's ID. Thus to render the content you need to know what these IDs refer to.
-
-For example, here's a line of text containing a server-specific emoji:
-
-```md
-Here's a Discord emoji: <:zergling:901461081384452187>
-```
-
-This library will return the Markdown syntax tree and also a list of all server entities that were found in the message. You can then use the API to look up the entities, and then render the message when they are known.
-
 ## Features
 
 This library extends the standard Marked syntax with the following Discord-specific features:
