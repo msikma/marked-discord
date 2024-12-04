@@ -40,6 +40,7 @@ This will log the following data:
         {
           type: 'discordServerEmoji',
           raw: '<:zergling:901461081384452187>',
+          emojiIsAnimated: false,
           emojiName: 'zergling',
           emojiId: '901461081384452187',
         }
@@ -50,6 +51,7 @@ This will log the following data:
     '901461081384452187': {
       type: 'Emoji',
       id: '901461081384452187',
+      isAnimated: false,
       name: 'zergling'
     }
   }
