@@ -10,6 +10,17 @@ describe('Marked syntax extensions', () => {
       expect(tokens).toContainEqual({
         type: 'discordServerEmoji',
         raw: '<:zergling:901461081384452187>',
+        emojiIsAnimated: false,
+        emojiId: '901461081384452187',
+        emojiName: 'zergling',
+      })
+    })
+    it('parses animated emojis', () => {
+      const tokens = getInnerTokens(`emoji <a:zergling:901461081384452187>`)
+      expect(tokens).toContainEqual({
+        type: 'discordServerEmoji',
+        raw: '<a:zergling:901461081384452187>',
+        emojiIsAnimated: true,
         emojiId: '901461081384452187',
         emojiName: 'zergling',
       })
@@ -29,6 +40,7 @@ describe('Marked syntax extensions', () => {
         expect(tokens).not.toContainEqual({
           type: 'discordServerEmoji',
           raw: `<:${name}:${id}>`,
+          emojiIsAnimated: false,
           emojiName: name,
           emojiId: id,
         })

@@ -55,6 +55,7 @@ describe('public exports', () => {
               {
                 type: 'discordServerEmoji',
                 raw: '<:zergling:901461081384452187>',
+                emojiIsAnimated: false,
                 emojiName: 'zergling',
                 emojiId: '901461081384452187'
               }
@@ -62,15 +63,16 @@ describe('public exports', () => {
           }
         ])
         expect(res.entities).toStrictEqual({
-          '901461081384452187': {type: 'Emoji', id: '901461081384452187', name: 'zergling'},
+          '901461081384452187': {type: 'Emoji', id: '901461081384452187', name: 'zergling', isAnimated: false},
         })
       })
       it('does not return duplicate entities', () => {
         const parser = new MarkedDiscord()
-        const res = parser.getMarkdownTokens(`emoji <:hydra:901461081384452186> <:zergling:901461081384452187> <:zergling:901461081384452187> <@532337964173230080>`)
+        const res = parser.getMarkdownTokens(`emoji <:hydra:901461081384452186> <:zergling:901461081384452187> <:zergling:901461081384452187> <a:animated:901461081384452189> <@532337964173230080>`)
         expect(res.entities).toStrictEqual({
-          '901461081384452186': {type: 'Emoji', id: '901461081384452186', name: 'hydra'},
-          '901461081384452187': {type: 'Emoji', id: '901461081384452187', name: 'zergling'},
+          '901461081384452186': {type: 'Emoji', id: '901461081384452186', name: 'hydra', isAnimated: false},
+          '901461081384452187': {type: 'Emoji', id: '901461081384452187', name: 'zergling', isAnimated: false},
+          '901461081384452189': {type: 'Emoji', id: '901461081384452189', name: 'animated', isAnimated: true},
           '532337964173230080': {type: 'User', id: '532337964173230080'},
         })
       })
@@ -81,7 +83,7 @@ describe('public exports', () => {
           '901461081384452180': {type: 'User', id: '901461081384452180'},
           '901461081384452182': {type: 'Role', id: '901461081384452182'},
           '901461081384452181': {type: 'TextChannel', id: '901461081384452181'},
-          '901461081384452183': {type: 'Emoji', id: '901461081384452183', name: 'zergling'},
+          '901461081384452183': {type: 'Emoji', id: '901461081384452183', name: 'zergling', isAnimated: false},
         })
       })
     })
