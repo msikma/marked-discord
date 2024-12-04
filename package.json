@@ -10,6 +10,7 @@
     "build": "tsup",
     "watch": "tsup --watch src",
     "test": "TZ=CET vitest run",
+    "test:watch": "TZ=CET vitest watch",
     "lint": "eslint ."
   },
   "publishConfig": {
