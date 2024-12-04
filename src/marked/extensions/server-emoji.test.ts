@@ -1,8 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {getInnerTokens} from '../../index.test.ts'
 
-//<a:ling:901461081384452187>
-
 describe('Marked syntax extensions', () => {
   describe('discordServerEmoji', () => {
     it('parses server emojis correctly', () => {
