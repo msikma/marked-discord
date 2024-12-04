@@ -2,7 +2,7 @@ import type {DiscordEntity} from '../entity.ts'
 import type {Tokens, TokenizerExtension} from 'marked'
 
 const extensionName = 'discordChannelMention'
-const apiObject = 'TextChannel'
+const apiObject = 'Channel'
 
 export interface ChannelMentionToken {
   type: string

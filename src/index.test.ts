@@ -76,13 +76,13 @@ describe('public exports', () => {
           '532337964173230080': {type: 'User', id: '532337964173230080'},
         })
       })
-      it('returns entities for User, Role, TextChannel and Emoji objects', () => {
+      it('returns entities for User, Role, Channel and Emoji objects', () => {
         const parser = new MarkedDiscord()
         const res = parser.getMarkdownTokens(`some entities <@901461081384452180> <@&901461081384452182> <#901461081384452181> <:zergling:901461081384452183>`)
         expect(res.entities).toStrictEqual({
           '901461081384452180': {type: 'User', id: '901461081384452180'},
           '901461081384452182': {type: 'Role', id: '901461081384452182'},
-          '901461081384452181': {type: 'TextChannel', id: '901461081384452181'},
+          '901461081384452181': {type: 'Channel', id: '901461081384452181'},
           '901461081384452183': {type: 'Emoji', id: '901461081384452183', name: 'zergling', isAnimated: false},
         })
       })
