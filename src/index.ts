@@ -7,6 +7,9 @@ import keyBy from 'lodash.keyby'
 // All valid Discord token names.
 export const discordTokenNames = discordExtensions.map(extension => extension.name)
 
+// Export type for entities and pass on the Token type from Marked.
+export type {DiscordEntity, Token}
+
 export class MarkedDiscord {
   // Our base parser is the Github flavored Markdown parser.
   private marked: Marked = new Marked({
