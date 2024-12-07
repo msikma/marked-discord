@@ -26,7 +26,7 @@ export interface TimestampToken {
 interface RelativeTimestampType {
   type: 'RelativeTimeFormat',
   options: {
-    style: 'short' | 'full'
+    style: 'short' | 'narrow' | 'long'
   }
 }
 
@@ -41,7 +41,7 @@ interface DateTimeTimestampType {
 // 24 seconds ago
 const timestamp_R: RelativeTimestampType = {
   type: 'RelativeTimeFormat',
-  options: {style: 'full'},
+  options: {style: 'long'},
 }
 // 8:06 PM
 const timestamp_t: DateTimeTimestampType = {
