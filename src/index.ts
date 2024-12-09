@@ -7,6 +7,17 @@ import keyBy from 'lodash.keyby'
 // All valid Discord token names.
 export const discordTokenNames = discordExtensions.map(extension => extension.name)
 
+// Object containing id: DiscordEntity pairs.
+export interface DiscordEntityObject {
+  [id: string]: DiscordEntity
+}
+
+// The primary parse result the user receives.
+export interface ParseResult {
+  tokens: Token[]
+  entities: DiscordEntityObject
+}
+
 // Export type for entities and pass on the Token type from Marked.
 export type {DiscordEntity, Token}
 
@@ -171,9 +182,9 @@ export class MarkedDiscord {
    * 
    * This includes a list of entities that need to be resolved for rendering to take place.
    */
-  getMarkdownTokens(input: string) {
+  getMarkdownTokens(input: string): ParseResult {
     const tokens = this.getSyntaxTree(input)
-    const entities = this.getUniqueEntities(this.getEntitiesFromTokens(tokens))
+    const entities = this.getUniqueEntities(this.getEntitiesFromTokens(tokens)) as DiscordEntityObject
     return {
       tokens,
       entities
